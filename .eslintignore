@@ -1,0 +1,7 @@
+dist/*
+.next/*
+.cache
+public
+node_modules
+*.esm.js
+*.d.ts
