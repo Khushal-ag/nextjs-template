@@ -26,12 +26,14 @@
 ## Getting Started
 
 ```bash
-pnpx create next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>
-
-npx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>
+pnpx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>
 ```
 
-<p align="center" style="font-weight: bold;">OR</p>
+<div align="center">
+
+**OR**
+
+</div>
 
 **Install `degit` globally**
 
