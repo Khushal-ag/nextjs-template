@@ -7,7 +7,7 @@
     "email": "starkhush5@gmail.com"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "preview": "next build && next start",
