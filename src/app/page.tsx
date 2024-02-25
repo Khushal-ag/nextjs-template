@@ -41,7 +41,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="flex w-fit items-center gap-2"
             >
-              <Github className="mr-1 h-5 w-5 text-stone-900" />
+              <Github className="mr-1 size-5 text-stone-900" />
               Visit on Github
             </a>
           </div>
@@ -61,9 +61,9 @@ export default function App() {
 
               <span className="ml-2 text-gray-400 transition-colors duration-300 group-hover:text-white">
                 {isCopied ? (
-                  <ClipboardCheck className="h-5 w-5" />
+                  <ClipboardCheck className="size-5" />
                 ) : (
-                  <Clipboard className="h-5 w-5" />
+                  <Clipboard className="size-5" />
                 )}
               </span>
             </p>
@@ -71,7 +71,7 @@ export default function App() {
         </section>
         <footer className="container mt-10 grid place-items-center justify-self-center text-white ">
           <span className="flex items-center gap-1">
-            <Copyright className="h-4 w-4" />
+            <Copyright className="size-4" />
             <span>{new Date().getFullYear()}</span>
             <a
               href="https://github.com/Khushal-ag"

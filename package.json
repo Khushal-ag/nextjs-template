@@ -13,14 +13,13 @@
     "preview": "next build && next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "ui":"pnpm dlx shadcn-ui@latest",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,mdx,json}\" --cache",
     "fmt:write": "prettier --write \"**/*.{ts,tsx,mdx,json}\" --cache"
   },
   "dependencies": {
-    "clsx": "^2.1.0",
     "lucide-react": "^0.314.0",
     "next": "14.1.0",
-    "next-auth": "^4.24.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
