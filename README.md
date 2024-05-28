@@ -26,7 +26,7 @@
 ## Getting Started
 
 ```bash
-pnpx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>
+bunx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>
 ```
 
 <div align="center">
@@ -38,7 +38,7 @@ pnpx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project
 **Install `degit` globally**
 
 ```bash
-pnpm i -g degit || yarn global add degit || npm i -g degit
+bun i -g degit || pnpm i -g degit || yarn global add degit || npm i -g degit
 ```
 
 **Create a new project from this template**
@@ -51,7 +51,7 @@ cd <project-name>
 **Install dependencies**
 
 ```bash
-pnpm i || yarn || npm i
+bun i || pnpm i || yarn || npm i
 ```
 
 **Initialize a new git repository _(Optional)_:**
@@ -75,34 +75,9 @@ In the project directory, you can run:
 | `lint`       | Runs next lint on the project.                       |
 | `type-check` | Runs TypeScript type checker.                        |
 | `fmt:check`  | Checks if the code is formatted with Prettier.       |
-| `fmt:write`  | Formats the code with Prettier.                      |
-
-## Folder Structure
-
-```bash
-.
-├── public
-│   ├── favicon.ico
-│   ├── nextjs-dark.svg
-│   └── nextjs-light.svg
-├── src
-│   ├── app
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── styles
-│   │   └── globals.css
-│   └── types
-│       └── reset.d.ts
-├── LICENSE
-├── README.md
-├── next.config.js
-├── next-env.d.ts
-├── package.json
-├── postcss.config.js
-├── renovate.json
-├── tailwind.config.js
-└── tsconfig.json
-```
+| `fmt`        | Formats the code with Prettier.                      |
+| `clean`      | Remove build cache (.next).                          |
+| `cleani`     | Remove cache and dependencies and reinstall them.    |
 
 ## After Installation Checklist
 
@@ -114,7 +89,7 @@ In the project directory, you can run:
 
 ## Switching Package Manager
 
-This template uses [pnpm](https://pnpm.io/) as the default package manager. If you want to use `npm` or `yarn`, you need to remove the `pnpm-lock.yaml` file and run `npm i` or `yarn` to generate the lock file for the respective package manager.
+This template uses [bun](https://bun.sh/) as the default package manager. If you want to use `npm` or `yarn` or `pnpm`, you need to remove the `bun.lockb` file and run `npm i` or `yarn` or `pnpm i` to generate the lock file for the respective package manager.
 
 ## License
 

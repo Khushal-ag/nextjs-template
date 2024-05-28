@@ -8,7 +8,8 @@ export default function App() {
   const [isCopied, setIsCopied] = useState(false);
 
   const copyToClipboard = () => {
-    const text = "pnpx create-next-app -e \"https://github.com/Khushal-ag/nextjs-template\" <project-name>";
+    const text =
+      'bunx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>';
 
     try {
       navigator.clipboard.writeText(text);
@@ -53,10 +54,12 @@ export default function App() {
             >
               <span className="mr-2 text-orange-500">$</span>
 
-              <span>pnpx</span>
+              <span>bunx</span>
 
               <span className="line-clamp-1">
-                create-next-app -e "https://github.com/Khushal-ag/nextjs-template" {"<project-name>"}
+                create-next-app -e
+                &quot;https://github.com/Khushal-ag/nextjs-template&quot;{" "}
+                {"<project-name>"}
               </span>
 
               <span className="ml-2 text-gray-400 transition-colors duration-300 group-hover:text-white">

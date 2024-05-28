@@ -2,6 +2,7 @@
   "name": "nextjs-template",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "author": {
     "name": "Khushal Agarwal",
     "email": "starkhush5@gmail.com"
@@ -13,9 +14,11 @@
     "preview": "next build && next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "ui":"pnpm dlx shadcn-ui@latest",
+    "ui": "bunx shadcn-ui@latest",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,mdx,json}\" --cache",
-    "fmt:write": "prettier --write \"**/*.{ts,tsx,mdx,json}\" --cache"
+    "fmt": "prettier --write \"**/*.{ts,tsx,mdx,json}\" --cache --experimental-ternaries",
+    "clean": "rm -rf .next",
+    "cleani": "rm -rf .next && rm -rf node_modules && bun i"
   },
   "dependencies": {
     "lucide-react": "^0.379.0",
@@ -31,7 +34,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^9.3.0",
+    "eslint": "8.57.0",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.17.0",
