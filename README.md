@@ -29,25 +29,6 @@
 bunx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>
 ```
 
-<div align="center">
-
-**OR**
-
-</div>
-
-**Install `degit` globally**
-
-```bash
-bun i -g degit || pnpm i -g degit || yarn global add degit || npm i -g degit
-```
-
-**Create a new project from this template**
-
-```bash
-degit Khushal-ag/nextjs-template <project-name>
-cd <project-name>
-```
-
 **Install dependencies**
 
 ```bash
