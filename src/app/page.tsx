@@ -30,7 +30,7 @@ export default function App() {
           <Image src="/nextjs-light.svg" alt="next" height={1500} width={150} />
         </div>
         <p className="px-4 text-center text-3xl tracking-wide text-amber-50">
-          A Nextjs template with <Span>React18</Span>, <Span>TypeScript</Span>,{" "}
+          A Nextjs template with <Span>Next14</Span>, <Span>TypeScript</Span>,{" "}
           <Span>TailwindCSS</Span>, <Span>Lucide Icons</Span> pre-configured
           with <Span>ESLint</Span> and <Span>Prettier</Span>.
         </p>
