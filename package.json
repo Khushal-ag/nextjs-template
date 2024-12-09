@@ -21,8 +21,8 @@
     "cleani": "rm -rf .next && rm -rf node_modules && bun i"
   },
   "dependencies": {
-    "lucide-react": "^0.462.0",
-    "next": "14.2.18",
+    "lucide-react": "^0.468.0",
+    "next": "14.2.20",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -30,19 +30,19 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/node": "^20.17.9",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^18.3.14",
+    "@types/react-dom": "^18.3.2",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "autoprefixer": "^10.4.20",
     "eslint": "8.57.1",
-    "eslint-config-next": "14.2.18",
+    "eslint-config-next": "14.2.20",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "postcss": "^8.4.49",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss": "^3.4.15",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
   }
 }
