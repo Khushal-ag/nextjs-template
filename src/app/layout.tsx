@@ -2,12 +2,13 @@ import type { Metadata, Viewport } from "next";
 
 import "@/styles/globals.css";
 
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
 import * as fonts from "@/lib/fonts";
 import { absoluteUrl, cn } from "@/lib/utils";
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -16,10 +17,11 @@ export default function RootLayout({
       <body
         className={cn(
           ...Object.values(fonts).map((font) => font.variable),
-          "min-h-dvh scroll-smooth font-inter antialiased"
+          "font-inter min-h-dvh scroll-smooth antialiased",
         )}
       >
         {children}
+        <TailwindIndicator />
       </body>
     </html>
   );
@@ -33,8 +35,8 @@ export const viewport: Viewport = {
   userScalable: true,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" }
-  ]
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -47,17 +49,17 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
-    siteName: siteConfig.name
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    site: siteConfig.links.instagram
+    site: siteConfig.links.instagram,
   },
   icons: {
     icon: [{ rel: "icon", url: "/favicon.ico" }],
-    apple: [{ url: "/favicon.ico" }]
+    apple: [{ url: "/favicon.ico" }],
   },
-  manifest: absoluteUrl("/site.webmanifest")
+  manifest: absoluteUrl("/site.webmanifest"),
 };

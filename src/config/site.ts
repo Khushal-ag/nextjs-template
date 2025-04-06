@@ -6,15 +6,15 @@ export const siteConfig = {
   email: { team: "starkhush5@gmail.com" },
 
   authors: [
-    { name: "Khushal Agarwal", url: "https://portfolio.khushalagarwal.tech" }
+    { name: "Khushal Agarwal", url: "https://portfolio.khushalagarwal.tech" },
   ],
 
   keywords: [],
 
   links: {
     instagram: "https://www.instagram.com/starkhush/",
-    github: "hhttps://github.com/Khushal-ag"
-  }
+    github: "hhttps://github.com/Khushal-ag",
+  },
 };
 
 export type SiteConfig = typeof siteConfig;

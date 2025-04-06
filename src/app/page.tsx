@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { Check, Code, Copyright, Github, Package } from "lucide-react";
 
 import { CopyCommandButton } from "./client-components";
@@ -10,12 +11,12 @@ export default function App() {
     <main className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden bg-gradient-to-b from-zinc-900 to-black px-4 py-12">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(55,65,81,0.15),transparent_65%)]"></div>
-      <div className="absolute left-1/4 top-1/3 h-96 w-96 animate-pulse rounded-full bg-purple-600/10 blur-3xl"></div>
-      <div className="absolute right-1/4 top-2/3 h-96 w-96 animate-pulse rounded-full bg-cyan-600/10 blur-3xl"></div>
+      <div className="absolute left-1/4 top-1/3 size-96 animate-pulse rounded-full bg-purple-600/10 blur-3xl"></div>
+      <div className="absolute right-1/4 top-2/3 size-96 animate-pulse rounded-full bg-cyan-600/10 blur-3xl"></div>
 
-      <header className="relative z-10 container max-w-4xl mx-auto text-center">
+      <header className="container relative z-10 mx-auto max-w-4xl text-center">
         <div className="mb-4 flex items-center justify-center gap-2">
-          <div className="relative h-16 w-16 md:h-20 md:w-20 transition-all duration-700 hover:scale-110">
+          <div className="relative size-16 transition-all duration-700 hover:scale-110 md:size-20">
             <Image
               src="/nextjs-light.svg"
               alt="Next.js"
@@ -25,11 +26,11 @@ export default function App() {
             />
           </div>
         </div>
-        <h1 className="mb-2 bg-gradient-to-br from-cyan-400 via-blue-300 to-purple-500 bg-clip-text text-5xl font-extrabold text-transparent md:text-7xl pb-3">
+        <h1 className="mb-2 bg-gradient-to-br from-cyan-400 via-blue-300 to-purple-500 bg-clip-text pb-3 text-5xl font-extrabold text-transparent md:text-7xl">
           Next.js Starter
         </h1>
         <div className="relative mx-auto mb-6 h-1 w-24 overflow-hidden rounded-full bg-gradient-to-r from-cyan-400 to-purple-500">
-          <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+          <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
         </div>
         <p className="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-300">
           A modern, feature-packed Next.js template to jumpstart your project.
@@ -37,7 +38,7 @@ export default function App() {
       </header>
 
       <div className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center gap-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
           <FeatureCard
             icon={<Code className="size-5" />}
             title="Modern Stack"
@@ -66,7 +67,7 @@ export default function App() {
         </div>
 
         <div className="w-full space-y-6">
-          <h2 className="text-center text-2xl font-bold bg-gradient-to-br from-cyan-400 via-blue-300 to-purple-500 bg-clip-text text-transparent">
+          <h2 className="bg-gradient-to-br from-cyan-400 via-blue-300 to-purple-500 bg-clip-text text-center text-2xl font-bold text-transparent">
             Get Started Now
           </h2>
 
@@ -75,7 +76,7 @@ export default function App() {
               href="https://github.com/Khushal-ag/nextjs-template"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative w-auto flex justify-center items-center gap-2 overflow-hidden rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30 active:scale-95"
+              className="group relative flex w-auto items-center justify-center gap-2 overflow-hidden rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30 active:scale-95"
             >
               <span className="absolute inset-0 -z-10 translate-y-full bg-gradient-to-t from-violet-800 to-blue-700 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"></span>
               <Github className="size-12" />
@@ -88,7 +89,7 @@ export default function App() {
       </div>
 
       <footer className="relative z-10 mt-auto w-full border-t border-zinc-800/50 pt-8">
-        <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-4 md:flex-row">
+        <div className="container mx-auto flex flex-col items-center justify-between gap-4 p-4 md:flex-row">
           <p className="text-sm text-zinc-500">
             Made with Next.js, TypeScript and TailwindCSS
           </p>
@@ -117,14 +118,14 @@ const Span = ({ children }: { children: React.ReactNode }) => (
 const FeatureCard = ({
   icon,
   title,
-  description
+  description,
 }: {
   icon: React.ReactNode;
   title: string;
   description: React.ReactNode;
 }) => (
   <div className="group flex flex-col items-center gap-4 rounded-xl border border-zinc-800/50 bg-zinc-900/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg hover:shadow-cyan-500/5">
-    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
+    <div className="flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
       {icon}
     </div>
     <h3 className="text-xl font-bold text-white">{title}</h3>

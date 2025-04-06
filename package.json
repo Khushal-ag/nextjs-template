@@ -21,6 +21,7 @@
     "cleani": "rm -rf .next && rm -rf node_modules && bun i"
   },
   "dependencies": {
+    "eslint-plugin-react-compiler": "^19.0.0-beta-e993439-20250328",
     "lucide-react": "^0.485.0",
     "next": "15.2.4",
     "react": "^19.0.0",
