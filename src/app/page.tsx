@@ -1,96 +1,133 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import { Clipboard, ClipboardCheck, Copyright, Github } from "lucide-react";
+import { Check, Code, Copyright, Github, Package } from "lucide-react";
+
+import { CopyCommandButton } from "./client-components";
 
 export default function App() {
-  const [isCopied, setIsCopied] = useState(false);
+  const currentYear = new Date().getFullYear();
 
-  const copyToClipboard = () => {
-    const text =
-      'bunx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project-name>';
-
-    try {
-      navigator.clipboard.writeText(text);
-      setIsCopied(true);
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
-  };
   return (
-    <>
-      <main className="grid min-h-screen grid-cols-1  place-content-around  bg-zinc-900">
-        <header className="container mx-auto h-auto text-center">
-          <h1 className="bg-gradient-to-b from-cyan-400 to-purple-400 bg-clip-text text-4xl font-bold tracking-wider text-transparent md:text-6xl">
-            Nextjs Starter Template
-          </h1>
-        </header>
-        <div className="flex items-center justify-center">
-          <Image src="/nextjs-light.svg" alt="next" height={1500} width={150} />
+    <main className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden bg-gradient-to-b from-zinc-900 to-black px-4 py-12">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(55,65,81,0.15),transparent_65%)]"></div>
+      <div className="absolute left-1/4 top-1/3 h-96 w-96 animate-pulse rounded-full bg-purple-600/10 blur-3xl"></div>
+      <div className="absolute right-1/4 top-2/3 h-96 w-96 animate-pulse rounded-full bg-cyan-600/10 blur-3xl"></div>
+
+      <header className="relative z-10 container max-w-4xl mx-auto text-center">
+        <div className="mb-4 flex items-center justify-center gap-2">
+          <div className="relative h-16 w-16 md:h-20 md:w-20 transition-all duration-700 hover:scale-110">
+            <Image
+              src="/nextjs-light.svg"
+              alt="Next.js"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
-        <p className="px-4 text-center text-3xl tracking-wide text-amber-50">
-          A Nextjs template with <Span>Next14</Span>, <Span>TypeScript</Span>,{" "}
-          <Span>TailwindCSS</Span>, <Span>Lucide Icons</Span> pre-configured
-          with <Span>ESLint</Span> and <Span>Prettier</Span>.
+        <h1 className="mb-2 bg-gradient-to-br from-cyan-400 via-blue-300 to-purple-500 bg-clip-text text-5xl font-extrabold text-transparent md:text-7xl pb-3">
+          Next.js Starter
+        </h1>
+        <div className="relative mx-auto mb-6 h-1 w-24 overflow-hidden rounded-full bg-gradient-to-r from-cyan-400 to-purple-500">
+          <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+        </div>
+        <p className="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-300">
+          A modern, feature-packed Next.js template to jumpstart your project.
         </p>
-        <section className="flex items-center gap-4 justify-self-center p-4 text-cyan-50 lg:flex-row">
-          <div className="rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 px-4 py-3 text-lg font-semibold hover:from-violet-600 hover:to-blue-700 hover:shadow-md hover:shadow-blue-600 active:ring-2 active:ring-blue-600 active:ring-offset-2 active:ring-offset-black/90">
+      </header>
+
+      <div className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center gap-16 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          <FeatureCard
+            icon={<Code className="size-5" />}
+            title="Modern Stack"
+            description={
+              <>
+                Powered by <Span>Next15</Span>, <Span>TypeScript</Span>, and{" "}
+                <Span>TailwindCSS</Span>
+              </>
+            }
+          />
+          <FeatureCard
+            icon={<Package className="size-5" />}
+            title="Pre-configured"
+            description={
+              <>
+                Ready with <Span>ESLint</Span>, <Span>Prettier</Span>, and{" "}
+                <Span>Lucide Icons</Span>
+              </>
+            }
+          />
+          <FeatureCard
+            icon={<Check className="size-5" />}
+            title="Production Ready"
+            description="Start building right away with best practices built-in"
+          />
+        </div>
+
+        <div className="w-full space-y-6">
+          <h2 className="text-center text-2xl font-bold bg-gradient-to-br from-cyan-400 via-blue-300 to-purple-500 bg-clip-text text-transparent">
+            Get Started Now
+          </h2>
+
+          <div className="flex flex-col items-center gap-4 lg:flex-row lg:justify-center">
             <a
               href="https://github.com/Khushal-ag/nextjs-template"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-fit items-center gap-2"
+              className="group relative w-auto flex justify-center items-center gap-2 overflow-hidden rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30 active:scale-95"
             >
-              <Github className="mr-1 size-5 text-stone-900" />
-              Visit on Github
+              <span className="absolute inset-0 -z-10 translate-y-full bg-gradient-to-t from-violet-800 to-blue-700 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"></span>
+              <Github className="size-12" />
+              <span className="whitespace-nowrap">View On GitHub</span>
             </a>
+
+            <CopyCommandButton />
           </div>
+        </div>
+      </div>
 
-          <div className="group rounded-2xl border border-zinc-700 p-1 font-mono font-semibold hover:border-zinc-600">
-            <p
-              onClick={copyToClipboard}
-              className="flex cursor-pointer items-center gap-1 rounded-xl bg-zinc-800 px-4 py-3 hover:bg-zinc-700/25"
-            >
-              <span className="mr-2 text-orange-500">$</span>
-
-              <span>bunx</span>
-
-              <span className="line-clamp-1">
-                create-next-app -e
-                &quot;https://github.com/Khushal-ag/nextjs-template&quot;{" "}
-                {"<project-name>"}
-              </span>
-
-              <span className="ml-2 text-gray-400 transition-colors duration-300 group-hover:text-white">
-                {isCopied ? (
-                  <ClipboardCheck className="size-5" />
-                ) : (
-                  <Clipboard className="size-5" />
-                )}
-              </span>
-            </p>
-          </div>
-        </section>
-        <footer className="container mt-10 grid place-items-center justify-self-center text-white ">
-          <span className="flex items-center gap-1">
-            <Copyright className="size-4" />
-            <span>{new Date().getFullYear()}</span>
+      <footer className="relative z-10 mt-auto w-full border-t border-zinc-800/50 pt-8">
+        <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-4 md:flex-row">
+          <p className="text-sm text-zinc-500">
+            Made with Next.js, TypeScript and TailwindCSS
+          </p>
+          <div className="flex items-center gap-2 text-sm text-zinc-400">
+            <Copyright className="size-3.5" />
+            <span>{currentYear}</span>
             <a
               href="https://github.com/Khushal-ag"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyan-200 hover:text-cyan-400"
+              className="border-b border-transparent text-cyan-400 transition-colors hover:border-cyan-400"
             >
               Khushal-ag@github
             </a>
-          </span>
-        </footer>
-      </main>
-    </>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
 
 const Span = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-cyan-200">{children}</span>
+  <span className="font-medium text-cyan-400">{children}</span>
+);
+
+const FeatureCard = ({
+  icon,
+  title,
+  description
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: React.ReactNode;
+}) => (
+  <div className="group flex flex-col items-center gap-4 rounded-xl border border-zinc-800/50 bg-zinc-900/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-800/50 hover:shadow-lg hover:shadow-cyan-500/5">
+    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
+      {icon}
+    </div>
+    <h3 className="text-xl font-bold text-white">{title}</h3>
+    <p className="text-zinc-300">{description}</p>
+  </div>
 );

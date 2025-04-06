@@ -18,12 +18,18 @@
   "importOrderBuiltinModulesToTop": true,
   "importOrderCombineTypeAndValueImports": true,
   "importOrderMergeDuplicateImports": true,
-  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "importOrderParserPlugins": [
+    "typescript",
+    "jsx",
+    "decorators-legacy"
+  ],
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true,
-  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
   "semi": true,
   "singleQuote": false,
   "tabWidth": 2,
-  "trailingComma": "es5"
+  "trailingComma": "none"
 }

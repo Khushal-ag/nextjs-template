@@ -1,0 +1,9 @@
+{
+  "background_color": "#ffffff",
+  "description": "A template for Next.js projects with TypeScript, Tailwind CSS, and shadcn/ui.",
+  "display": "standalone",
+  "name": "NextJS Template",
+  "short_name": "NextJS Template",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
