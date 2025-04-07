@@ -30,11 +30,11 @@ export function CopyCommandButton() {
   return (
     <div
       onClick={copyToClipboard}
-      className="group relative w-auto max-w-full cursor-pointer overflow-hidden rounded-xl border border-zinc-700/50 bg-zinc-800/50 px-6 py-3 font-mono text-base backdrop-blur-sm transition-all duration-300 hover:border-zinc-500 hover:bg-zinc-800 hover:shadow-lg hover:shadow-cyan-500/5"
+      className="group relative w-auto max-w-full cursor-pointer overflow-hidden rounded-xl border border-zinc-700/50 bg-zinc-800/50 px-4 py-3 font-mono text-base backdrop-blur-sm transition-all duration-300 hover:border-zinc-500 hover:bg-zinc-800 hover:shadow-lg hover:shadow-cyan-500/5"
     >
       <div className="flex items-center gap-3">
         <span className="text-lg text-orange-500">$</span>
-        <code className="whitespace-pre-wrap break-words text-zinc-100">
+        <code className="whitespace-pre-wrap break-words text-xs text-zinc-100">
           bunx create-next-app -e
           &quot;https://github.com/Khushal-ag/nextjs-template&quot;{" "}
           {"<project-name>"}
@@ -43,8 +43,8 @@ export function CopyCommandButton() {
           className={`flex shrink-0 items-center transition-all duration-300`}
         >
           {isCopied ?
-            <Check className="animate-pulse text-green-400" />
-          : <Copy className="text-zinc-50 transition-transform active:scale-90" />
+            <Check className="size-5 animate-pulse text-green-400" />
+          : <Copy className="size-5 text-zinc-50 transition-transform active:scale-90" />
           }
         </span>
       </div>

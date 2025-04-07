@@ -17,7 +17,7 @@ export default function RootLayout({
       <body
         className={cn(
           ...Object.values(fonts).map((font) => font.variable),
-          "font-inter min-h-dvh scroll-smooth antialiased",
+          "min-h-dvh scroll-smooth font-inter antialiased",
         )}
       >
         {children}

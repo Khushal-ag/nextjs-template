@@ -9,7 +9,6 @@ export default function App() {
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden bg-gradient-to-b from-zinc-900 to-black px-4 py-12">
-      {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(55,65,81,0.15),transparent_65%)]"></div>
       <div className="absolute left-1/4 top-1/3 size-96 animate-pulse rounded-full bg-purple-600/10 blur-3xl"></div>
       <div className="absolute right-1/4 top-2/3 size-96 animate-pulse rounded-full bg-cyan-600/10 blur-3xl"></div>
@@ -30,7 +29,7 @@ export default function App() {
           Next.js Starter
         </h1>
         <div className="relative mx-auto mb-6 h-1 w-24 overflow-hidden rounded-full bg-gradient-to-r from-cyan-400 to-purple-500">
-          <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
         </div>
         <p className="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-300">
           A modern, feature-packed Next.js template to jumpstart your project.
@@ -71,15 +70,15 @@ export default function App() {
             Get Started Now
           </h2>
 
-          <div className="flex flex-col items-center gap-4 lg:flex-row lg:justify-center">
+          <div className="flex flex-col items-center gap-3 lg:flex-row lg:justify-center">
             <a
               href="https://github.com/Khushal-ag/nextjs-template"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex w-auto items-center justify-center gap-2 overflow-hidden rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30 active:scale-95"
+              className="group relative flex w-auto items-center justify-center gap-2 overflow-hidden rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 p-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/30 active:scale-95"
             >
               <span className="absolute inset-0 -z-10 translate-y-full bg-gradient-to-t from-violet-800 to-blue-700 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"></span>
-              <Github className="size-12" />
+              <Github className="size-5" />
               <span className="whitespace-nowrap">View On GitHub</span>
             </a>
 
