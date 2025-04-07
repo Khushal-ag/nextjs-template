@@ -5,7 +5,7 @@ import "@/styles/globals.css";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { siteConfig } from "@/config/site";
 import * as fonts from "@/lib/fonts";
-import { absoluteUrl, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 export default function RootLayout({
   children,
@@ -61,5 +61,5 @@ export const metadata: Metadata = {
     icon: [{ rel: "icon", url: "/favicon.ico" }],
     apple: [{ url: "/favicon.ico" }],
   },
-  manifest: new URL(absoluteUrl("/site.webmanifest")),
+  manifest: "/site.webmanifest",
 };
