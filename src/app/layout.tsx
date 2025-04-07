@@ -61,5 +61,5 @@ export const metadata: Metadata = {
     icon: [{ rel: "icon", url: "/favicon.ico" }],
     apple: [{ url: "/favicon.ico" }],
   },
-  manifest: absoluteUrl("/site.webmanifest"),
+  manifest: new URL(absoluteUrl("/site.webmanifest")),
 };
