@@ -9,12 +9,14 @@ export const siteConfig = {
     { name: "Khushal Agarwal", url: "https://portfolio.khushalagarwal.tech" },
   ],
 
-  keywords: [],
+  keywords: ["nextjs", "react", "typescript", "tailwindcss", "template"],
 
   links: {
     instagram: "https://www.instagram.com/starkhush/",
-    github: "hhttps://github.com/Khushal-ag",
+    github: "https://github.com/Khushal-ag",
   },
+
+  ogImage: "https://nextjs-template.khushalagarwal.tech/og.png",
 };
 
 export type SiteConfig = typeof siteConfig;
