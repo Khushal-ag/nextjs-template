@@ -66,7 +66,9 @@ In the project directory, you can run:
 - [ ] Update `README.md` with your project details.
 - [ ] Update `LICENSE` with your name and year.
 - [ ] Update `layout.tsx` to your liking.
+- [ ] Update `config/site.ts` to your own config.
 - [ ] Clear `page.tsx` and write your own.
+- [ ] Remove `client-component.tsx`.
 
 ## Switching Package Manager
 
