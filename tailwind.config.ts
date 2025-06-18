@@ -1,3 +1,4 @@
+import tailwindcssAnimate from "tailwindcss-animate";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 import type { Config } from "tailwindcss";
@@ -22,7 +23,7 @@ const config = {
       mono: ["var(--font-mono)", ...fontFamily.mono],
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
 
 export default config;

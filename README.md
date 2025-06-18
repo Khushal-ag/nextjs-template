@@ -55,6 +55,7 @@ In the project directory, you can run:
 | `preview`    | Builds and serves the app in the production mode.    |
 | `lint`       | Runs next lint on the project.                       |
 | `type-check` | Runs TypeScript type checker.                        |
+| `ui`         | Shadcn script alias.                                 |
 | `fmt:check`  | Checks if the code is formatted with Prettier.       |
 | `fmt`        | Formats the code with Prettier.                      |
 | `clean`      | Remove build cache (.next).                          |

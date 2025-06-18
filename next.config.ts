@@ -8,6 +8,20 @@ const nextConfig: NextConfig = {
     // ppr: true,
     reactCompiler: isProd,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+        pathname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
