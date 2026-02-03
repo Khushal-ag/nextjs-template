@@ -1,9 +1,22 @@
-cache
-.cache
-public
-CHANGELOG.md
-dist
+# Dependencies & build
 node_modules
 .next
+out
 build
+dist
+.cache
+
+# Lockfiles (no need to format)
+bun.lock
+bun.lockb
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated / vendored
+*.min.js
+public
 .contentlayer
+
+# Docs (optional: remove if you want to format these)
+CHANGELOG.md

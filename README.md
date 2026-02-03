@@ -10,18 +10,22 @@
 
 # Next.js Starter Template
 
-## A Minimal Next.js Starter Template with _TypeScript_, _Tailwind CSS_, pre-configured with _ESLint_, and _Prettier_
+A minimal Next.js starter with **Next.js 16**, **Tailwind CSS v4**, **TypeScript**, **ESLint 9** (flat config), **Prettier**, and **Husky**.
 
 </div>
 
 ## Features
 
-- ⚡ **[Next.js](https://nextjs.org/)** - A React Framework for Production
-- 🔥 **[App Router](https://nextjs.org/docs/app)** - It is a new paradigm for building applications using React's latest features.
-- 🎨 **[Tailwind CSS](https://tailwindcss.com/)** - A Utility-First CSS Framework for Rapid UI Development
-- 📦 **[TypeScript](https://www.typescriptlang.org/)** - A typed superset of JavaScript that compiles to plain JavaScript
-- 📝 **[ESLint](https://eslint.org/)** - The pluggable linting utility for JavaScript and JSX
-- 🛠 **[Prettier](https://prettier.io/)** - An opinionated code formatter
+- **Next.js 16** – App Router, Turbopack, React Compiler (prod)
+- **Tailwind CSS v4** – CSS-first config (`@theme` in `globals.css`)
+- **TypeScript** – Strict mode
+- **ESLint 9** – Flat config with Next, TypeScript, Prettier, React Compiler
+- **Prettier** – Import sort + Tailwind class sorting
+- **Husky + lint-staged** – Pre-commit: ESLint + Prettier on staged files
+
+## Prerequisites
+
+Node.js ≥ 20.9.0
 
 ## Getting Started
 
@@ -32,52 +36,73 @@ bunx create-next-app -e "https://github.com/Khushal-ag/nextjs-template" <project
 **Install dependencies**
 
 ```bash
-bun i || pnpm i || yarn || npm i
+bun i
+# or: pnpm i | yarn | npm i
 ```
 
-**Initialize a new git repository _(Optional)_:**
+**Initialize git _(optional)_**
 
 ```bash
 git init
 git add .
-git commit --no-verify -m "init"
+git commit -m "init"
 ```
+
+Husky runs on install (`prepare`) and sets up the pre-commit hook.
 
 ## Available Scripts
 
-In the project directory, you can run:
+| Script        | Description                              |
+| ------------- | ---------------------------------------- |
+| `dev`         | Start dev server (Turbopack)             |
+| `build`       | Production build                         |
+| `start`       | Serve production build                   |
+| `preview`     | Build and serve (production mode)        |
+| `lint`        | ESLint + TypeScript type-check          |
+| `lint:fix`    | ESLint with auto-fix                     |
+| `type-check`  | TypeScript type-check only               |
+| `fmt:check`   | Check Prettier formatting                |
+| `fmt`         | Format with Prettier                     |
+| `validate`    | `lint` + `fmt:check` + `build` (for CI)  |
+| `ui`          | Shadcn UI CLI                            |
+| `clean`       | Remove `.next` cache                     |
+| `cleani`      | Remove `.next` and `node_modules`, reinstall |
 
-| **Script**   | **Description**                                      |
-| ------------ | ---------------------------------------------------- |
-| `dev`        | Runs the app in the development mode.                |
-| `build`      | Builds the app for production to the `.next` folder. |
-| `start`      | Runs the built app in the production mode.           |
-| `preview`    | Builds and serves the app in the production mode.    |
-| `lint`       | Runs next lint on the project.                       |
-| `type-check` | Runs TypeScript type checker.                        |
-| `ui`         | Shadcn script alias.                                 |
-| `fmt:check`  | Checks if the code is formatted with Prettier.       |
-| `fmt`        | Formats the code with Prettier.                      |
-| `clean`      | Remove build cache (.next).                          |
-| `cleani`     | Remove cache and dependencies and reinstall them.    |
+## Project Structure
 
-## After Installation Checklist
+- `src/app/` – App Router (layout, page, robots, sitemap)
+- `src/components/` – React components
+- `src/config/site.ts` – Site config (SEO, links, metadata)
+- `src/lib/` – Utilities, fonts
+- `src/styles/globals.css` – Global styles + Tailwind `@theme`
 
-- [ ] Update `package.json` with your project details.
-- [ ] Update `README.md` with your project details.
-- [ ] Update `LICENSE` with your name and year.
-- [ ] Update `layout.tsx` to your liking.
-- [ ] Update `config/site.ts` to your own config.
-- [ ] Clear `page.tsx` and write your own.
-- [ ] Remove `client-component.tsx`.
+## Customization
+
+Edit **`src/config/site.ts`** for your project:
+
+- `name`, `description`, `url`, `keywords`
+- `authors`, `creator`, `links` (repo, github, social)
+- `twitter`, `ogImage`, `robots`
+
+Set **`NEXT_PUBLIC_SITE_URL`** in `.env` to override the base URL (e.g. per environment). See `.env.example`.
+
+Metadata, Open Graph, Twitter, sitemap, and robots all use this config.
+
+## After Installation
+
+- [ ] Update `package.json` with your project details
+- [ ] Update `README.md` and `LICENSE`
+- [ ] Edit `src/config/site.ts`
+- [ ] Replace or edit `src/app/page.tsx` and `src/app/layout.tsx`
+- [ ] Remove or repurpose `src/app/client-components.tsx` if not needed
 
 ## Switching Package Manager
 
-This template uses [bun](https://bun.sh/) as the default package manager. If you want to use `npm` or `yarn` or `pnpm`, you need to remove the `bun.lockb` file and run `npm i` or `yarn` or `pnpm i` to generate the lock file for the respective package manager.
+The template uses [bun](https://bun.sh/) and keeps `bun.lock`. To use npm, yarn, or pnpm: remove `bun.lock`, then run `npm i`, `yarn`, or `pnpm i`. Other lockfiles are in `.gitignore`.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT – see [LICENSE](LICENSE).
 
 ## Contributors
 
@@ -85,11 +110,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 [![][contributors]][contributors-graph]
 
-_Note: It may take up to 24h for the [contrib.rocks][contrib-rocks] plugin to update because it's refreshed once a day._
+_It may take up to 24h for the [contrib.rocks][contrib-rocks] plugin to update._
 
 </div>
-
-<!----------------------------------{ Labels }--------------------------------->
 
 [views]: https://komarev.com/ghpvc/?username=nextjs-template&label=view%20counter&color=red&style=flat
 [repo-size]: https://img.shields.io/github/repo-size/Khushal-ag/nextjs-template

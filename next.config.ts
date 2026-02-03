@@ -4,22 +4,12 @@ const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  experimental: {
-    // ppr: true,
-    reactCompiler: isProd,
-  },
+  reactCompiler: isProd,
+  // Restrict remotePatterns in production (e.g. specific hostnames) for security
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-        pathname: "**",
-      },
-      {
-        protocol: "http",
-        hostname: "**",
-        pathname: "**",
-      },
+      { protocol: "https", hostname: "**", pathname: "**" },
+      { protocol: "http", hostname: "**", pathname: "**" },
     ],
   },
 };

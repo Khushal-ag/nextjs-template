@@ -1,4 +1,4 @@
-/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions & import('prettier-plugin-tailwindcss').PluginOptions} */
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
 const config = {
   plugins: [
     "@ianvs/prettier-plugin-sort-imports",
@@ -20,6 +20,7 @@ const config = {
   ],
   experimentalTernaries: true,
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
+  tailwindStylesheet: "./src/styles/globals.css",
 };
 
 export default config;

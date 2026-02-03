@@ -1,3 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tailwind-animate";
+
+/* Custom theme: fonts use CSS variables from next/font (applied on body) */
+@theme {
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  .container {
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 1280px;
+  }
+}
+
+/* Breakpoint indicator: show only in xl range (80rem–96rem) to avoid conflicting display utilities */
+@layer utilities {
+  .indicator-only-xl {
+    display: none;
+  }
+  @media (min-width: 80rem) and (max-width: 95.9975rem) {
+    .indicator-only-xl {
+      display: inline-block;
+    }
+  }
+}

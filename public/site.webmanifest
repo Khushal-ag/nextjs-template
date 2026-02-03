@@ -1,9 +1,12 @@
 {
-  "background_color": "#ffffff",
-  "description": "A template for Next.js projects with TypeScript, Tailwind CSS, and shadcn/ui.",
-  "display": "standalone",
-  "name": "NextJS Template",
-  "short_name": "NextJS Template",
+  "name": "Next.js Starter Template",
+  "short_name": "Next.js Template",
+  "description": "A minimal Next.js 16 starter with TypeScript, Tailwind CSS v4, ESLint 9, Prettier, and Husky.",
   "start_url": "/",
-  "theme_color": "#ffffff"
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": []
 }

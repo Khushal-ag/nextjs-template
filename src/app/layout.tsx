@@ -7,6 +7,27 @@ import { siteConfig } from "@/config/site";
 import * as fonts from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  publisher: {
+    "@type": "Person",
+    name: siteConfig.creator,
+    url: siteConfig.authors[0]?.url,
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteConfig.url}/?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -20,6 +41,10 @@ export default function RootLayout({
           "min-h-dvh scroll-smooth font-inter antialiased",
         )}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <TailwindIndicator />
       </body>
@@ -34,15 +59,35 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
 };
 
 export const metadata: Metadata = {
-  title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  authors: siteConfig.authors,
+  creator: siteConfig.creator,
+  publisher: siteConfig.publisher,
+  applicationName: siteConfig.shortName,
+  referrer: "origin-when-cross-origin",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: siteConfig.robots.index,
+    follow: siteConfig.robots.follow,
+    googleBot: {
+      index: siteConfig.robots.index,
+      follow: siteConfig.robots.follow,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -63,11 +108,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    site: siteConfig.links.instagram,
+    site: siteConfig.twitter.site,
+    creator: siteConfig.twitter.handle,
   },
   icons: {
     icon: [{ rel: "icon", url: "/favicon.ico" }],
     apple: [{ url: "/favicon.ico" }],
   },
   manifest: "/site.webmanifest",
+  category: "technology",
 };

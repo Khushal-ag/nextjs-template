@@ -1,9 +1,5 @@
 import { Inter, JetBrains_Mono, Poppins } from "next/font/google";
 
-/* -----------------------------------------------------------------------------------------------
- * google fonts
- * -----------------------------------------------------------------------------------------------*/
-
 export const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
