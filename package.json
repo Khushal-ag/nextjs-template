@@ -8,7 +8,7 @@
     "email": "starkhush5@gmail.com"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=20.20.0"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -28,18 +28,18 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "lucide-react": "^0.541.0",
+    "lucide-react": "^0.563.0",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@tailwindcss/postcss": "^4.1.18",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/node": "^22.19.8",
-    "@types/react": "^19.2.10",
+    "@types/node": "^22.19.10",
+    "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
     "eslint": "^9.39.2",
