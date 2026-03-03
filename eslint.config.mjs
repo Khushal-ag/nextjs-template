@@ -1,8 +1,9 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import js from "@eslint/js";
+import nextPlugin from "@next/eslint-plugin-next";
 import prettier from "eslint-config-prettier/flat";
 import reactCompiler from "eslint-plugin-react-compiler";
+import tseslint from "typescript-eslint";
 
 const eslintConfig = defineConfig([
   globalIgnores([
@@ -16,9 +17,13 @@ const eslintConfig = defineConfig([
     ".env",
     ".env.*",
   ]),
-  ...nextVitals,
-  ...nextTs,
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   prettier,
+  {
+    files: ["src/**/*.{js,jsx,ts,tsx}", "app/**/*.{js,jsx,ts,tsx}"],
+    ...nextPlugin.configs["core-web-vitals"],
+  },
   {
     plugins: {
       "react-compiler": reactCompiler,
