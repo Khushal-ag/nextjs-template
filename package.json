@@ -8,7 +8,7 @@
     "email": "starkhush5@gmail.com"
   },
   "engines": {
-    "node": ">=20.20.0"
+    "node": ">=24.14.0"
   },
   "scripts": {
     "dev": "next dev --turbopack",
