@@ -8,7 +8,7 @@
     "email": "starkhush5@gmail.com"
   },
   "engines": {
-    "node": ">=24.14.0"
+    "node": ">=20.9.0"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -24,7 +24,7 @@
     "clean": "rm -rf .next",
     "cleani": "rm -rf .next && rm -rf node_modules && bun i",
     "prepare": "husky",
-    "validate": "bun run lint && bun run fmt:check && bun run build"
+    "validate": "eslint . && tsc --noEmit && prettier --check \"**/*.{ts,tsx,mdx,json}\" --cache && next build"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -35,21 +35,21 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9",
+    "@eslint/js": "^9.39.4",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-    "@next/eslint-plugin-next": "^16",
+    "@next/eslint-plugin-next": "^16.1.6",
     "@tailwindcss/postcss": "^4.2.1",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/node": "^22.19.13",
+    "@types/node": "^22.19.15",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
-    "eslint": "^10.0.2",
+    "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
     "husky": "^9.1.7",
-    "lint-staged": "^16.3.1",
-    "postcss": "^8.5.6",
+    "lint-staged": "^16.3.2",
+    "postcss": "^8.5.8",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwind-animate": "^0.2.10",

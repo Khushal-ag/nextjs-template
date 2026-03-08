@@ -10,7 +10,7 @@
 
 # Next.js Starter Template
 
-A minimal Next.js starter with **Next.js 16**, **Tailwind CSS v4**, **TypeScript**, **ESLint 9** (flat config), **Prettier**, and **Husky**.
+A minimal Next.js starter with **Next.js 16**, **Tailwind CSS v4**, **TypeScript**, **ESLint 10** (flat config), **Prettier**, and **Husky**.
 
 </div>
 
@@ -19,7 +19,7 @@ A minimal Next.js starter with **Next.js 16**, **Tailwind CSS v4**, **TypeScript
 - **Next.js 16** – App Router, Turbopack, React Compiler (prod)
 - **Tailwind CSS v4** – CSS-first config (`@theme` in `globals.css`)
 - **TypeScript** – Strict mode
-- **ESLint 9** – Flat config with Next, TypeScript, Prettier, React Compiler
+- **ESLint 10** – Flat config with Next, TypeScript, Prettier, React Compiler
 - **Prettier** – Import sort + Tailwind class sorting
 - **Husky + lint-staged** – Pre-commit: ESLint + Prettier on staged files
 
@@ -52,21 +52,21 @@ Husky runs on install (`prepare`) and sets up the pre-commit hook.
 
 ## Available Scripts
 
-| Script        | Description                              |
-| ------------- | ---------------------------------------- |
-| `dev`         | Start dev server (Turbopack)             |
-| `build`       | Production build                         |
-| `start`       | Serve production build                   |
-| `preview`     | Build and serve (production mode)        |
-| `lint`        | ESLint + TypeScript type-check          |
-| `lint:fix`    | ESLint with auto-fix                     |
-| `type-check`  | TypeScript type-check only               |
-| `fmt:check`   | Check Prettier formatting                |
-| `fmt`         | Format with Prettier                     |
-| `validate`    | `lint` + `fmt:check` + `build` (for CI)  |
-| `ui`          | Shadcn UI CLI                            |
-| `clean`       | Remove `.next` cache                     |
-| `cleani`      | Remove `.next` and `node_modules`, reinstall |
+| Script       | Description                                  |
+| ------------ | -------------------------------------------- |
+| `dev`        | Start dev server (Turbopack)                 |
+| `build`      | Production build                             |
+| `start`      | Serve production build                       |
+| `preview`    | Build and serve (production mode)            |
+| `lint`       | ESLint + TypeScript type-check               |
+| `lint:fix`   | ESLint with auto-fix                         |
+| `type-check` | TypeScript type-check only                   |
+| `fmt:check`  | Check Prettier formatting                    |
+| `fmt`        | Format with Prettier                         |
+| `validate`   | `lint` + `fmt:check` + `build` (for CI)      |
+| `ui`         | Shadcn UI CLI                                |
+| `clean`      | Remove `.next` cache                         |
+| `cleani`     | Remove `.next` and `node_modules`, reinstall |
 
 ## Project Structure
 
@@ -85,6 +85,7 @@ Edit **`src/config/site.ts`** for your project:
 - `twitter`, `ogImage`, `robots`
 
 Set **`NEXT_PUBLIC_SITE_URL`** in `.env` to override the base URL (e.g. per environment). See `.env.example`.
+If you use remote images with `next/image`, set **`NEXT_PUBLIC_IMAGE_HOSTS`** (comma-separated hostnames, `https` only), for example: `images.example.com,cdn.example.org`.
 
 Metadata, Open Graph, Twitter, sitemap, and robots all use this config.
 
@@ -99,6 +100,7 @@ Metadata, Open Graph, Twitter, sitemap, and robots all use this config.
 ## Switching Package Manager
 
 The template uses [bun](https://bun.sh/) and keeps `bun.lock`. To use npm, yarn, or pnpm: remove `bun.lock`, then run `npm i`, `yarn`, or `pnpm i`. Other lockfiles are in `.gitignore`.
+`validate` is package-manager agnostic, so `npm run validate`, `pnpm validate`, `yarn validate`, and `bun run validate` all work.
 
 ## License
 
