@@ -8,7 +8,7 @@
     "email": "starkhush5@gmail.com"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": ">=20.20.1"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "lucide-react": "^0.576.0",
+    "lucide-react": "^0.577.0",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
