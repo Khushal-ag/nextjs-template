@@ -40,7 +40,7 @@
     "@next/eslint-plugin-next": "^16.2.9",
     "@tailwindcss/postcss": "^4.3.1",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/node": "^22.19.21",
+    "@types/node": "^22.20.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
@@ -55,7 +55,7 @@
     "tailwind-animate": "^0.2.10",
     "tailwindcss": "^4.3.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.61.0"
+    "typescript-eslint": "^8.61.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
