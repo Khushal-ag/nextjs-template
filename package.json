@@ -40,7 +40,7 @@
     "@next/eslint-plugin-next": "^16.2.10",
     "@tailwindcss/postcss": "^4.3.2",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/node": "^22.20.1",
+    "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
