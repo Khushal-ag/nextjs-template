@@ -6,12 +6,12 @@ This playbook is intentionally agent-friendly: deterministic steps, exact packag
 
 ## 1. Target Baseline
 
-- Runtime: Node.js `>=20.9.0` (source of truth: `package.json` `engines.node`)
+- Runtime: Node.js `>=20.20.2` (source of truth: `package.json` `engines.node`)
 - Recommended package manager: Bun
 - Framework baseline: Next.js App Router
 - Language: TypeScript strict mode
 - Styling: Tailwind CSS v4 via `@tailwindcss/postcss`
-- Linting: ESLint flat config + TypeScript + Next + React Compiler + Prettier compat
+- Linting: ESLint flat config + TypeScript + Next + `eslint-plugin-react-hooks` (recommended-latest) + Prettier compat
 - Formatting: Prettier + import sorting + Tailwind class sorting
 - Git hooks: Husky + lint-staged pre-commit
 
@@ -24,11 +24,11 @@ Install these dependencies to match this standard config.
 ```json
 {
   "clsx": "^2.1.1",
-  "lucide-react": "^0.576.0",
-  "next": "^16.1.6",
-  "react": "^19.2.4",
-  "react-dom": "^19.2.4",
-  "tailwind-merge": "^3.5.0"
+  "lucide-react": "^0.577.0",
+  "next": "^16.4.0",
+  "react": "^19.3.0",
+  "react-dom": "^19.3.0",
+  "tailwind-merge": "^3.7.0"
 }
 ```
 
@@ -36,27 +36,27 @@ Install these dependencies to match this standard config.
 
 ```json
 {
-  "@eslint/js": "^9.39.4",
+  "@eslint/js": "^9.39.5",
   "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-  "@next/eslint-plugin-next": "^16.1.6",
-  "@tailwindcss/postcss": "^4.2.1",
+  "@next/eslint-plugin-next": "^16.4.0",
+  "@tailwindcss/postcss": "^4.3.3",
   "@total-typescript/ts-reset": "^0.6.1",
-  "@types/node": "^22.19.15",
-  "@types/react": "^19.2.14",
-  "@types/react-dom": "^19.2.3",
-  "babel-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
-  "eslint": "^10.0.3",
+  "@types/node": "^22.20.5",
+  "@types/react": "^19.3.0",
+  "@types/react-dom": "^19.3.0",
+  "babel-plugin-react-compiler": "1.0.0",
+  "eslint": "^10.12.0",
   "eslint-config-prettier": "^10.1.8",
-  "eslint-plugin-react-compiler": "^19.0.0-beta-ebf51a3-20250411",
+  "eslint-plugin-react-hooks": "^7.1.1",
   "husky": "^9.1.7",
-  "lint-staged": "^16.3.2",
-  "postcss": "^8.5.8",
-  "prettier": "^3.8.1",
-  "prettier-plugin-tailwindcss": "^0.7.2",
+  "lint-staged": "^16.4.0",
+  "postcss": "^8.5.29",
+  "prettier": "^3.9.10",
+  "prettier-plugin-tailwindcss": "^0.8.1",
   "tailwind-animate": "^0.2.10",
-  "tailwindcss": "^4.2.1",
+  "tailwindcss": "^4.3.3",
   "typescript": "^5.9.3",
-  "typescript-eslint": "^8.56.1"
+  "typescript-eslint": "^8.71.1"
 }
 ```
 
@@ -144,11 +144,11 @@ Create or replace these files.
 ## `eslint.config.mjs`
 
 ```js
+import { defineConfig, globalIgnores } from "eslint/config";
 import js from "@eslint/js";
 import nextPlugin from "@next/eslint-plugin-next";
 import prettier from "eslint-config-prettier/flat";
-import reactCompiler from "eslint-plugin-react-compiler";
-import { defineConfig, globalIgnores } from "eslint/config";
+import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 
 const eslintConfig = defineConfig([
@@ -166,16 +166,13 @@ const eslintConfig = defineConfig([
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettier,
+  reactHooks.configs.flat["recommended-latest"],
   {
     files: ["src/**/*.{js,jsx,ts,tsx}", "app/**/*.{js,jsx,ts,tsx}"],
     ...nextPlugin.configs["core-web-vitals"],
   },
   {
-    plugins: {
-      "react-compiler": reactCompiler,
-    },
     rules: {
-      ...reactCompiler.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_" },
@@ -240,30 +237,7 @@ export default config;
 
 ## `next.config.ts`
 
-```ts
-import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === "production";
-const imageHostnames = (process.env.NEXT_PUBLIC_IMAGE_HOSTS ?? "")
-  .split(",")
-  .map((host) => host.trim())
-  .filter(Boolean);
-
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  reactCompiler: isProd,
-  ...(imageHostnames.length > 0 && {
-    images: {
-      remotePatterns: imageHostnames.map((hostname) => ({
-        protocol: "https",
-        hostname,
-      })),
-    },
-  }),
-};
-
-export default nextConfig;
-```
+Match the repository `next.config.ts`: Cache Components + Partial Prefetching, always-on React Compiler (with `experimental.turbopackRustReactCompiler`), opt-in remote images, and security headers (HSTS, nosniff, frame deny, referrer, permissions policy, CSP).
 
 ## 5. Base Styling Contract (Tailwind v4)
 
@@ -274,8 +248,7 @@ Create `src/styles/globals.css`:
 @import "tailwind-animate";
 
 @theme {
-  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
@@ -379,11 +352,14 @@ Target structure for this standard:
 
 - `src/app/layout.tsx` - global metadata + JSON-LD + fonts + global css
 - `src/app/page.tsx` - home page
+- `src/app/error.tsx` - client error boundary
+- `src/app/not-found.tsx` - 404 UI
 - `src/app/robots.ts` - metadata route
 - `src/app/sitemap.ts` - metadata route
 - `src/config/site.ts` - single source of SEO/site config
-- `src/lib/fonts.ts` - next/font variables
+- `src/lib/fonts.ts` - next/font variables (Outfit + DM Sans + JetBrains Mono)
 - `public/site.webmanifest` - manifest
+- Prefer `src/proxy.ts` (not `middleware.ts`) if you need request interception
 
 Important: `layout.tsx`, `robots.ts`, and `sitemap.ts` should read from `src/config/site.ts` so metadata remains centralized.
 
@@ -438,9 +414,11 @@ If using npm/pnpm/yarn, execute equivalent commands.
 ## 11. Known Notes
 
 - If any project docs conflict with `package.json` `engines.node`, treat `package.json` as source of truth.
-- `next.config.ts` sets `reactCompiler` only in production (`NODE_ENV=production`).
+- `next.config.ts` enables Cache Components, Partial Prefetching, always-on React Compiler, Turbopack Rust React Compiler, and security headers.
 - `next.config.ts` keeps remote image hosts opt-in through `NEXT_PUBLIC_IMAGE_HOSTS`.
+- Pin `babel-plugin-react-compiler` to an exact version (React team recommendation).
 - Tailwind v4 is CSS-first; there is no required `tailwind.config.ts` for this setup.
+- Request interception belongs in `proxy.ts` (Node runtime). Avoid adding legacy `middleware.ts` unless you specifically need the Edge runtime.
 
 ## 12. Agent Prompt You Can Reuse
 

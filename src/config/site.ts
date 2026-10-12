@@ -1,5 +1,5 @@
 /**
- * Site configuration – customize this file for your project.
+ * Site configuration. Customize this file for your project.
  *
  * This is the single source for:
  * - Site name, description, and SEO (metadata, Open Graph, Twitter)
@@ -25,7 +25,7 @@ export const siteConfig = {
   shortName: "Next.js Template",
   /** Site description (meta description, OG, Twitter) */
   description:
-    "A minimal Next.js 16 starter with TypeScript, Tailwind CSS v4, ESLint 9, Prettier, and Husky. Production-ready template to jumpstart your next project.",
+    "Opinionated Next.js 16 starter with TypeScript, Tailwind CSS v4, light/dark/system themes, ESLint 10, Prettier, Husky, and SEO defaults. Start on product work.",
   /** Canonical base URL (no trailing slash). Override with NEXT_PUBLIC_SITE_URL. */
   url: baseUrl,
   /** Contact / team email */
@@ -44,15 +44,18 @@ export const siteConfig = {
   keywords: [
     "nextjs",
     "next.js 16",
-    "react",
+    "react 19",
     "typescript",
     "tailwind css",
     "tailwind v4",
+    "next-themes",
+    "dark mode",
     "eslint",
     "prettier",
     "husky",
     "starter template",
     "boilerplate",
+    "create-next-app",
   ],
 
   /** Social and project links. repo = this project’s repo; templateRepo = “use this template” / create-next-app URL. */

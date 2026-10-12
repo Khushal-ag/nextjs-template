@@ -3,29 +3,46 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
 import * as fonts from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteConfig.name,
-  description: siteConfig.description,
-  url: siteConfig.url,
-  publisher: {
-    "@type": "Person",
-    name: siteConfig.creator,
-    url: siteConfig.authors[0]?.url,
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteConfig.url}/?q={search_term_string}`,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: siteConfig.name,
+      alternateName: siteConfig.shortName,
+      description: siteConfig.description,
+      url: siteConfig.url,
+      inLanguage: "en-US",
+      publisher: {
+        "@type": "Person",
+        name: siteConfig.creator,
+        url: siteConfig.authors[0]?.url,
+      },
     },
-    "query-input": "required name=search_term_string",
-  },
+    {
+      "@type": "SoftwareApplication",
+      name: siteConfig.name,
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Any",
+      url: siteConfig.url,
+      description: siteConfig.description,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      author: {
+        "@type": "Person",
+        name: siteConfig.creator,
+        url: siteConfig.authors[0]?.url,
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -37,16 +54,25 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          ...Object.values(fonts).map((font) => font.variable),
-          "min-h-dvh scroll-smooth font-inter antialiased",
+          fonts.outfit.variable,
+          fonts.dmSans.variable,
+          fonts.mono.variable,
+          "min-h-dvh scroll-smooth font-sans antialiased",
         )}
       >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {children}
-        <TailwindIndicator />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+          {children}
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );
@@ -58,9 +84,10 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
+  colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f1eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#12141a" },
   ],
 };
 
@@ -110,10 +137,25 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     site: siteConfig.twitter.site,
     creator: siteConfig.twitter.handle,
+    images: [siteConfig.ogImage],
   },
   icons: {
-    icon: [{ rel: "icon", url: "/favicon.ico" }],
-    apple: [{ url: "/favicon.ico" }],
+    icon: [
+      { rel: "icon", url: "/favicon.ico" },
+      {
+        rel: "icon",
+        url: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
   category: "technology",

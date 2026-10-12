@@ -16,16 +16,17 @@ A minimal Next.js starter with **Next.js 16**, **Tailwind CSS v4**, **TypeScript
 
 ## Features
 
-- **Next.js 16** – App Router, Turbopack, React Compiler (prod)
+- **Next.js 16** – App Router, Turbopack, Cache Components, React Compiler
 - **Tailwind CSS v4** – CSS-first config (`@theme` in `globals.css`)
+- **Light / dark / system themes** – `next-themes` + CSS variables (warm paper / slate / chartreuse)
 - **TypeScript** – Strict mode
-- **ESLint 10** – Flat config with Next, TypeScript, Prettier, React Compiler
+- **ESLint 10** – Flat config with Next, TypeScript, Prettier, React Hooks
 - **Prettier** – Import sort + Tailwind class sorting
 - **Husky + lint-staged** – Pre-commit: ESLint + Prettier on staged files
 
 ## Prerequisites
 
-Node.js ≥ 20.9.0
+Node.js ≥ 20.20.2
 
 ## Getting Started
 
@@ -63,18 +64,22 @@ Husky runs on install (`prepare`) and sets up the pre-commit hook.
 | `type-check` | TypeScript type-check only                   |
 | `fmt:check`  | Check Prettier formatting                    |
 | `fmt`        | Format with Prettier                         |
-| `validate`   | `lint` + `fmt:check` + `build` (for CI)      |
+| `validate`   | `lint` + `fmt:check` + `build`               |
 | `ui`         | Shadcn UI CLI                                |
 | `clean`      | Remove `.next` cache                         |
 | `cleani`     | Remove `.next` and `node_modules`, reinstall |
 
 ## Project Structure
 
-- `src/app/` – App Router (layout, page, robots, sitemap)
+- `src/app/` – App Router (layout, page, error, not-found, robots, sitemap)
 - `src/components/` – React components
 - `src/config/site.ts` – Site config (SEO, links, metadata)
 - `src/lib/` – Utilities, fonts
 - `src/styles/globals.css` – Global styles + Tailwind `@theme`
+
+## Theming
+
+Light, dark, and system modes ship ready via `next-themes` (`ThemeProvider` in `layout.tsx`, toggle in the page header from `client-components.tsx`). Semantic colors live as CSS variables in `src/styles/globals.css` (`:root` + `.dark`); preference persists in `localStorage`. Keep the toggle in your chrome, or restyle the tokens. There is no extra UI tree to delete.
 
 ## Customization
 
@@ -95,7 +100,8 @@ Metadata, Open Graph, Twitter, sitemap, and robots all use this config.
 - [ ] Update `README.md` and `LICENSE`
 - [ ] Edit `src/config/site.ts`
 - [ ] Replace or edit `src/app/page.tsx` and `src/app/layout.tsx`
-- [ ] Remove or repurpose `src/app/client-components.tsx` if not needed
+- [ ] Keep or restyle the theme toggle in `src/app/client-components.tsx`
+- [ ] Remove or repurpose `src/app/client-components.tsx` only if you drop theming
 
 ## Switching Package Manager
 
