@@ -57,6 +57,7 @@ const nextConfig: NextConfig = {
   // Always-on React Compiler; Rust path via Turbopack when available.
   reactCompiler: true,
   experimental: {
+    agentUpgrade: "security",
     turbopackRustReactCompiler: true,
   },
   // Keep remote images opt-in. Add comma-separated hosts via NEXT_PUBLIC_IMAGE_HOSTS.
