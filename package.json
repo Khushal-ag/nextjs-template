@@ -8,7 +8,7 @@
     "email": "starkhush5@gmail.com"
   },
   "engines": {
-    "node": ">=20.20.2"
+    "node": ">=26.13.1"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -41,7 +41,7 @@
     "@next/eslint-plugin-next": "^16.4.5",
     "@tailwindcss/postcss": "^4.3.5",
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/node": "^22.20.5",
+    "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "babel-plugin-react-compiler": "1.0.0",
