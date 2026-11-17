@@ -51,6 +51,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   // Next.js 16.4 recommends Cache Components for new apps (create-next-app default).
   cacheComponents: true,
   partialPrefetching: true,

@@ -100,6 +100,12 @@ src/
 4. Set `NEXT_PUBLIC_SITE_URL` in `.env` when needed (see `.env.example`)
 5. For remote `next/image` hosts: `NEXT_PUBLIC_IMAGE_HOSTS=images.example.com,cdn.example.org`
 
+## Convert another project
+
+Agents converting any app to this stack should follow [`docs/PROJECT_CONVERSION_PLAYBOOK.md`](docs/PROJECT_CONVERSION_PLAYBOOK.md). That playbook is the source of truth for deps, configs, theme contract, SEO shell, and validation.
+
+The home page in this repo is **demo-only** showcase UI. Conversions must follow the playbook’s **CONFIG** path (tooling, shell, clean theme baseline) and must **not** copy the showcase landing or FX CSS.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
